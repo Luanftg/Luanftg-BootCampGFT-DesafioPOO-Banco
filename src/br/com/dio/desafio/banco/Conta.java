@@ -2,7 +2,6 @@ package br.com.dio.desafio.banco;
 
 import java.text.NumberFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +13,6 @@ public abstract class Conta implements IConta {
     protected List<String> extrato = new ArrayList<>();
 
 
-    private final DateTimeFormatter formatdata = DateTimeFormatter.ofPattern("dd/MM/yyy");
-
     private static int SEQUENCIAL = 1;
     protected static  final int AGENCIA_PADRAO = 1;
 
@@ -23,7 +20,7 @@ public abstract class Conta implements IConta {
 
     public void imprimirExtrato(){
         for (int i=0; i<extrato.size();i++) {
-            String arr[] = extrato.get(i).split(" ");
+            String[] arr = extrato.get(i).split(" ");
 
 
             System.out.println("Id:" + i +
@@ -44,13 +41,6 @@ public abstract class Conta implements IConta {
         this.numero = Conta.SEQUENCIAL++;
     }
 
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
